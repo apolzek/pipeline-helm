@@ -1,7 +1,7 @@
 FROM alpine:3.10
 
-ENV HELM_VERSION=v2.14.3
-ENV KUBECTL_VERSION=v1.15.0
+ENV HELM_VERSION=2.14.3
+ENV KUBECTL_VERSION=1.15.0
 
 RUN apk add --no-cache libintl curl ca-certificates && \
     apk add --no-cache --virtual build_deps gettext && \
@@ -12,7 +12,7 @@ RUN apk add --no-cache libintl curl ca-certificates && \
     rm -rf linux-amd64 && \
     apk del build_deps curl
 
-RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
+RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x kubectl && \
     mv kubectl /bin
 
