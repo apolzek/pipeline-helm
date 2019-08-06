@@ -9,11 +9,12 @@ RUN apk add --no-cache libintl curl ca-certificates && \
     curl -L https://get.helm.sh/helm-v${HELM_VERSION}-linux-amd64.tar.gz |tar xvz && \
     mv linux-amd64/helm /usr/bin/helm && \
     chmod +x /usr/bin/helm && \
-    rm -rf linux-amd64 && \
-    apk del build_deps curl
+    rm -rf linux-amd64
 
 RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECTL_VERSION}/bin/linux/amd64/kubectl && \
     chmod +x kubectl && \
     mv kubectl /bin
+
+RUN apk del build_deps curl
 
 CMD ["/bin/sh"]
