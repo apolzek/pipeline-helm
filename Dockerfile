@@ -1,7 +1,7 @@
-FROM alpine:3.10
+FROM alpine:3
 
-ENV HELM_VERSION=2.14.3
-ENV KUBECTL_VERSION=1.15.0
+ENV HELM_VERSION=2.16.1
+ENV KUBECTL_VERSION=1.16.4
 
 RUN apk add --no-cache libintl curl ca-certificates && \
     apk add --no-cache --virtual build_deps gettext && \
