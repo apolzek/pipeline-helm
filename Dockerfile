@@ -15,6 +15,4 @@ RUN curl -LO https://storage.googleapis.com/kubernetes-release/release/v${KUBECT
     chmod +x kubectl && \
     mv kubectl /bin
 
-RUN apk del build_deps curl
-
 CMD ["/bin/sh"]
